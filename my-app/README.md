@@ -5,7 +5,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ### npmモジュールのインストール
 
 ```
-npm install ./my-app
+cd my-app
+npm install
 ```
 
 First, run the development server:
