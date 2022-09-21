@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import usempostid from "../hooks/mpostid"
+import usempostid from "../hooks/mpost_id"
 import axios from "./axios"
 
 export default function Pokemon() {
