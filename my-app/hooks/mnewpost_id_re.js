@@ -5,7 +5,7 @@ import { useState } from "react"
 const usemnewpostidre = ()=>{
     const [res,setres] = useState()
     const mnewpostidrelist = async () => {
-      const url = await axios.post("http://localhost:8000/api/v1/mock/post/{id}/reaction")
+      const url = await axios.post("http://localhost:8000/api/v1/mock/post/{id}/new_reaction/")
       setres(url)
     }
 
