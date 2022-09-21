@@ -3,14 +3,15 @@ import React, {useState} from 'react';
 
 const mnewpost_id_re = ()=> {
     const [postData, setPostData] = useState({
-        body:'',
-        label:0,
-        scale:0,
+        thumbsup:0,
+        heart:0,
+        smile:0,
+        astonished:0,
         e_mail:''
     })
     const subimitData = () => {
         const post = async () =>{
-            const result = await axios.post("http://localhost:8000/api/v1/mock/new_post/", postData)
+            const result = await axios.post("http://localhost:8000/api/v1/mock/post/3/new_reaction/", postData)
             console.log(result)
         }
         try{
@@ -22,25 +23,32 @@ const mnewpost_id_re = ()=> {
 
     return (
         <div>
-            <p>投稿内容を書いてね</p>
-            <input type='text' onChange={(e)=>{
+            <p>リアクションしてね</p>
+            <input onChange={(e)=>{
                 setPostData({
                     ...postData,
-                    body: e.target.value
+                    thumbsup: e.target.value
                 })
             }} />
             
             <input onChange={(e)=>{
                 setPostData({
                     ...postData,
-                    label: e.target.value
+                    heart: e.target.value
                 })
             }} />
 
             <input onChange={(e)=>{
                 setPostData({
                     ...postData,
-                    scale: e.target.value
+                    smile: e.target.value
+                })
+            }} />
+
+            <input onChange={(e)=>{
+                setPostData({
+                    ...postData,
+                    astonished: e.target.value
                 })
             }} />
             
@@ -52,7 +60,7 @@ const mnewpost_id_re = ()=> {
             }} />
 
 
-            <button onClick={subimitData} >投稿！！</button>
+            <button onClick={subimitData} >リアクション</button>
         </div>
     )
 
