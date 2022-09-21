@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import usepokemon from "../hooks"
+import usempost from "../hooks/mpost"
 import axios from "./axios"
 
 export default function Pokemon() {
- const {Getpokemonlist,res} = usepokemon()
+ const {mpostlist,res} = usempost()
 
  useEffect(()=>{
-  Getpokemonlist()
+  mpostlist()
 
   return () => console.log("end")
 },[])
