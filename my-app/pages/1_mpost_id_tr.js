@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 
 
-const mpost_id_re = ({ data, error }) => {
+const mpost_id_tr = ({ data, error }) => {
     if (error) {
         return <div>An error occured: {error.message}</div>
     }
@@ -29,9 +29,9 @@ const mpost_id_re = ({ data, error }) => {
     )
 }
 
-mpost_id_re.getInitialProps = async ctx => {
+mpost_id_tr.getInitialProps = async ctx => {
     try {
-        const response = await axios.get("http://localhost:8000/api/v1/mock/post/1/reaction/?e_mail=abc@email.com")
+        const response = await axios.get("http://localhost:8000/api/v1/mock/post/1/trend/")
         const data = response.data
         return { data }
     } catch (error) {
@@ -39,4 +39,4 @@ mpost_id_re.getInitialProps = async ctx => {
     }
 }
 
-export default mpost_id_re
+export default mpost_id_tr

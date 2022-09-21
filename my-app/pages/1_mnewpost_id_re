@@ -1,8 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-
-const mpost_id_re = ({ data, error }) => {
+const mnewpost_id_re = ({ data, error }) => {
     if (error) {
         return <div>An error occured: {error.message}</div>
     }
@@ -11,6 +10,7 @@ const mpost_id_re = ({ data, error }) => {
     const heart = data.heart
     const smile = data.smile
     const astonished = data.astonished
+    const e_mail = data.e_mail
     return (
         <div>
             <dl>
@@ -24,14 +24,16 @@ const mpost_id_re = ({ data, error }) => {
                 <dd>{smile}</dd>
                 <dt>Astonished</dt>
                 <dd>{astonished}</dd>
+                <dt>e_mail</dt>
+                <dd>{e_mail}</dd>
             </dl>
         </div>
     )
 }
 
-mpost_id_re.getInitialProps = async ctx => {
+mnewpost_id_re.getInitialProps = async ctx => {
     try {
-        const response = await axios.get("http://localhost:8000/api/v1/mock/post/1/reaction/?e_mail=abc@email.com")
+        const response = await axios.post("http://localhost:8000/api/v1/mock/post/1/new_reaction/")
         const data = response.data
         return { data }
     } catch (error) {
@@ -39,4 +41,4 @@ mpost_id_re.getInitialProps = async ctx => {
     }
 }
 
-export default mpost_id_re
+export default mnewpost_id_re
