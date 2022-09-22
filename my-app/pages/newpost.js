@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, {useState} from 'react';
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 const newpost = ()=> {
     const [postData, setPostData] = useState({
@@ -23,28 +25,28 @@ const newpost = ()=> {
     return (
         <div>
             <p>投稿内容を書いてね</p>
-            <input type='text' onChange={(e)=>{
+            <TextField label="本文" variant="outlined" type='text' onChange={(e)=>{
                 setPostData({
                     ...postData,
                     body: e.target.value
                 })
             }} />
             
-            <input onChange={(e)=>{
+            <TextField label="善い行いか善くなかった行いか" variant="outlined" onChange={(e)=>{
                 setPostData({
                     ...postData,
                     label: e.target.value
                 })
             }} />
 
-            <input onChange={(e)=>{
+            <TextField label="規模" variant="outlined" onChange={(e)=>{
                 setPostData({
                     ...postData,
                     scale: e.target.value
                 })
             }} />
             
-            <input type='text' onChange={(e)=>{
+            <TextField label="E-mail" variant="outlined" type='text' onChange={(e)=>{
                 setPostData({
                     ...postData,
                     e_mail: e.target.value
@@ -52,7 +54,7 @@ const newpost = ()=> {
             }} />
 
 
-            <button onClick={subimitData} >投稿！！</button>
+            <Button variant="contained" onClick={subimitData} >投稿！！</Button>
         </div>
     )
 
