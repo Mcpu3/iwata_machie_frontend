@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, {useState} from 'react';
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 const newpost_id_re = ()=> {
     const [postData, setPostData] = useState({
@@ -24,43 +26,42 @@ const newpost_id_re = ()=> {
     return (
         <div>
             <p>リアクションしてね</p>
-            <input onChange={(e)=>{
+            <TextField label="👍" variant="outlined" type='text' onChange={(e)=>{
                 setPostData({
                     ...postData,
                     thumbsup: e.target.value
                 })
             }} />
             
-            <input onChange={(e)=>{
+            <TextField label="🧡" variant="outlined" onChange={(e)=>{
                 setPostData({
                     ...postData,
                     heart: e.target.value
                 })
             }} />
 
-            <input onChange={(e)=>{
+            <TextField label="😀" variant="outlined" onChange={(e)=>{
                 setPostData({
                     ...postData,
                     smile: e.target.value
                 })
             }} />
 
-            <input onChange={(e)=>{
+            <TextField label="😲" variant="outlined" onChange={(e)=>{
                 setPostData({
                     ...postData,
                     astonished: e.target.value
                 })
             }} />
             
-            <input type='text' onChange={(e)=>{
+            <TextField label="E-mail" variant="outlined" type='text' onChange={(e)=>{
                 setPostData({
                     ...postData,
                     e_mail: e.target.value
                 })
             }} />
 
-
-            <button onClick={subimitData} >リアクション</button>
+            <Button variant="contained" onClick={subimitData} >リアクション</Button>
         </div>
     )
 
